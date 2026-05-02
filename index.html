@@ -365,7 +365,7 @@ Today is ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
+          model:'claude-sonnet-4-5',
           max_tokens:1000,
           system:SYSTEM_PROMPT,
           messages:chatHistory
@@ -436,7 +436,7 @@ Today is ${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',max_tokens:400,
+          model:'claude-sonnet-4-5',max_tokens:400,
           messages:[{role:'user',content:`Give me 5 of today's top news headlines as of ${new Date().toLocaleDateString()}. Respond ONLY with a JSON array, no other text: [{"headline":"...","source":"..."}]. Headlines under 12 words each.`}]
         })
       });
