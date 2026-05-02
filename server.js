@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,8 +22,13 @@ app.post('/api/chat', async (req, res) => {
     const data = await response.json();
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Server error', details: error.message });
   }
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'Jarvis online' });
 });
 
 app.listen(PORT, () => console.log(`Jarvis server running on port ${PORT}`));
